@@ -40,14 +40,17 @@ function post(request, response) {
 	var email = request.body.email;
 	var sid = login.login(name, email);
 	response.setHeader('Set-Cookie', 'session_id=' + sid);
-		
+	response.setHeader('Content-Type','text/html');	
 	response.end(login.hello(sid));
 };
 
 function del(request, response) {
 	console.log("DELETE:: Logout from the server");
+ 	
  	var sessionId = request.cookies['session_id'];
  	login.logout(sessionId);
+
+ 	response.setHeader('Content-Type','text/html');	
   	response.end('Logged out from the server\n');
 };
 
@@ -60,6 +63,7 @@ function put(request, response) {
 		response.setHeader('Set-Cookie', 'session_id=' + sid);
 	};
 	
+	response.setHeader('Content-Type','text/html');	
 	response.end("Re-freshed session id\n");
 };
 

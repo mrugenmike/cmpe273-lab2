@@ -51,7 +51,8 @@ Login.prototype.regenerateSession = function(sessionId){
 	if (this.isLoggedIn(sessionId)) {
 		var userDetails = this.sessionMap[sessionId]
 		this.logout(sessionId);
-		return this.login(userDetails["name"],userDetails["email"])
+		var refreshedSessionId = this.login(userDetails["name"],userDetails["email"]);
+		return refreshedSessionId;
 	};
 }
 

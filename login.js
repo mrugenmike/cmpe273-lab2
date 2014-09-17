@@ -47,7 +47,8 @@ Login.prototype.logout = function(sessionId) {
 	}
 };
 /**
- regenerates new session_id for the given user, also logouts him out for his old session_id.
+ Regenerates new session_id for the given user, also logouts him out for his old session_id.
+ Assumption POST will always come before PUT.
 */
 Login.prototype.refreshSession = function(sessionId){
 	if (this.isLoggedIn(sessionId)) {

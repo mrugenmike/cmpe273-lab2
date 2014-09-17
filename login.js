@@ -47,13 +47,6 @@ Login.prototype.logout = function(sessionId) {
 	}
 };
 
-Login.prototype.getUser = function(sessionId){
-	if (this.isLoggedIn(sessionId)) {
-		return this.sessionMap[sessionId];
-	};
-    return {};
-}
-
 Login.prototype.regenerateSession = function(sessionId){
 	if (this.isLoggedIn(sessionId)) {
 		var userDetails = this.sessionMap[sessionId]

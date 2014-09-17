@@ -57,7 +57,7 @@ Login.prototype.getUser = function(sessionId){
 Login.prototype.regenerateSession = function(sessionId){
 	if (this.isLoggedIn(sessionId)) {
 		var userDetails = this.sessionMap[sessionId]
-		logout(sessionId);
+		this.logout(sessionId);
 		return this.login(userDetails["name"],userDetails["email"])
 	};
 }

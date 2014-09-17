@@ -46,7 +46,9 @@ Login.prototype.logout = function(sessionId) {
 		delete this.sessionMap[sessionId]
 	}
 };
-
+/**
+ regenerates new session_id for the given user, also logouts him out for his old session_id.
+*/
 Login.prototype.regenerateSession = function(sessionId){
 	if (this.isLoggedIn(sessionId)) {
 		var userDetails = this.sessionMap[sessionId]
